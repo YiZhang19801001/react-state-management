@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route,Routes, NavLink} from 'react-router-dom';
-import Home from './pages/Home'
-import ReduxToolKit from './pages/ReduxToolKit'
-import Jotai from './pages/Jotai';
+import Home from './pages/Home/Home'
+import ReduxToolKit from './pages/ReduxToolKit/ReduxToolKit'
+import Jotai from './pages/Jotai/Jotai';
 
 import './App.css';
 
