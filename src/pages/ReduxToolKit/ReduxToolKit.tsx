@@ -1,25 +1,13 @@
 import React from 'react'
 import {store} from './store'
 import {Provider} from 'react-redux'
-import Counter from '../../components/Counter'
 import Todos from '../../components/Todos'
-import type { RootState } from './store'
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './counterSlice'
+import { useGetAllTodosQuery } from '../../services/jsonPlaceholder'
 
 function Page() {
-	// const count = useSelector((state: RootState) => state.counter.value)
-  // const dispatch = useDispatch()
+	const { data, error, isLoading } = useGetAllTodosQuery('')
 
-	// const handleIncrement = () => dispatch(increment())
-	// const handleDecrement = () => dispatch(decrement())
-
-	// return <Counter 
-	// 	count={count} 
-	// 	handleIncrement={handleIncrement}
-	// 	handleDecrement={handleDecrement}
-	// />
-	return <Todos/>
+	return <Todos data={data} error={error} isLoading={isLoading}/>
 }
 
 function ReduxToolKit() {

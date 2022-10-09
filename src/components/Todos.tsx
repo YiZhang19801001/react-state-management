@@ -1,9 +1,13 @@
 import React from 'react'
-import { useGetAllTodosQuery } from '../services/jsonPlaceholder'
+import type {Todo} from '../services/jsonPlaceholder'
 
-function Todos() {
+type TodoProps = {
+	error?: object,
+	isLoading: boolean,
+	data?: Todo[]
+}
 
-	const { data, error, isLoading } = useGetAllTodosQuery('')
+function Todos({error,isLoading,data}:TodoProps) {
 
 	return (
 		<div className='page'>      
@@ -13,7 +17,7 @@ function Todos() {
 			<>Loading...</>
 		) : data ? (
 			<>
-				{data.map(todo=><div key={todo.id}>{todo.id} | {todo.title} | {todo.completed.toString()}</div>)}
+				{data.map(todo =><div key={todo.id}>{todo.id} | {todo.title} | {todo.completed.toString()}</div>)}
 			</>
 		) : null}</div>
 	)

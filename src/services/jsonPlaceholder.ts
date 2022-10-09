@@ -1,6 +1,6 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-type Todo = {
+export type Todo = {
 	id: number,
 	title: string,
 	completed: boolean,
