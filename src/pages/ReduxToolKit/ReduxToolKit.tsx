@@ -2,12 +2,14 @@ import React from 'react'
 import {store} from './store'
 import {Provider} from 'react-redux'
 import Todos from '../../components/Todos'
-import { useGetAllTodosQuery } from '../../services/jsonPlaceholder'
+import { useGetAllTodosQuery } from '../../services/mockAPI'
 
 function Page() {
-	const { data, error, isLoading } = useGetAllTodosQuery('')
+	const { data, error, isLoading } = useGetAllTodosQuery()
 
-	return <Todos data={data} error={error} isLoading={isLoading}/>
+	return (<div className="page">
+		<Todos data={data} error={error} isLoading={isLoading}/>
+	</div>)
 }
 
 function ReduxToolKit() {

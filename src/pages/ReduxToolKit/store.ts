@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterSlice'
-import {jsonPlaceholderApi} from '../../services/jsonPlaceholder'
+import {mockApi} from '../../services/mockAPI'
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    [jsonPlaceholderApi.reducerPath]:jsonPlaceholderApi.reducer
+    [mockApi.reducerPath]:mockApi.reducer
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(jsonPlaceholderApi.middleware),
+    getDefaultMiddleware().concat(mockApi.middleware),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
