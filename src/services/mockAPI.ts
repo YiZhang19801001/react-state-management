@@ -10,9 +10,11 @@ export type Todo = {
 export const mockApi = createApi({
   reducerPath: 'mockApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://634009f5e44b83bc73c76aac.mockapi.io/' }),
+  tagTypes: ['Todo'],
   endpoints: (builder) => ({
     getAllTodos: builder.query<Todo[], void>({
       query: () => 'todos',
+      providesTags: ['Todo']
     }),
     addTodo: builder.mutation<Todo, Partial<Todo>>({
       query: (body) => ({
@@ -20,11 +22,28 @@ export const mockApi = createApi({
         method: 'POST',
         body,
       }),
-      // invalidatesTags: [{ type: 'Post', id: 'LIST' }],
+      invalidatesTags: ['Todo'],
     }),
+    updateTodo: builder.mutation<Todo, Partial<Todo>>({
+      query: (body) => ({
+        url: `todos/${body.id}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['Todo'],
+    }),
+    deleteTodo: builder.mutation<Todo, number>({
+      query(id) {
+        return {
+          url: `todos/${id}`,
+          method: 'DELETE',
+        }
+      },
+      invalidatesTags: ['Todo'],
+    })
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllTodosQuery, useAddTodoMutation } = mockApi
+export const { useGetAllTodosQuery, useAddTodoMutation, useUpdateTodoMutation, useDeleteTodoMutation } = mockApi

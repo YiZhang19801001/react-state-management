@@ -2,15 +2,40 @@
 	position: relative;
 }
 
+.todo-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.5rem;
+	height: 2.5rem;
+}
+
+.todo-item button {
+	height: 1.5rem;
+	padding: 0 0.5rem;
+	border: 1px solid red;
+	background-color: red;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.todo-item button:hover {
+	border: 1px solid rgb(155, 0, 0);
+	background-color: rgb(155, 0, 0);
+}
+
+
 .todo-list label {
 	position: relative;
-	display: block;
-	margin: 40px 0;
+	display: flex;
 	color: #fff;
 	font-size: 20px;
 	cursor: pointer;
 	-webkit-user-select: none;
 	user-select: none;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 .todo-list input[type="checkbox"] {
@@ -20,8 +45,7 @@
 }
 
 .todo-list i {
-	position: absolute;
-	top: 7px;
+	position: relative;
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -29,7 +53,6 @@
 }
 
 .todo-list input[type="checkbox"]:checked ~ i {
-	top: 7px;
 	border-top: none;
 	border-right: none;
 	height: 10px;
@@ -41,7 +64,6 @@
 
 .todo-list span {
 	position: relative;
-	left: 30px;
 	transition: 0.5s;
 	text-transform: capitalize;
 	color: #333;
