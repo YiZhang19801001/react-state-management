@@ -1,0 +1,7 @@
+assets/
+build/
+node_modules/
+npm-debug.log
+static/
+**/libs/*
+*.html

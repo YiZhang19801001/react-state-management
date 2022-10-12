@@ -1,96 +1,91 @@
 .todo-list {
-	position: relative;
+  position: relative;
 }
 
 .todo-item {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-start;
-	gap: 0.5rem;
-	height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  height: 2.5rem;
 }
 
 .todo-item button {
-	height: 1.5rem;
-	padding: 0 0.5rem;
-	border: 1px solid red;
-	background-color: red;
-	color: #fff;
-	border-radius: 4px;
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid red;
+  background-color: red;
+  color: #fff;
+  border-radius: 4px;
 }
 
 .todo-item button:hover {
-	border: 1px solid rgb(155, 0, 0);
-	background-color: rgb(155, 0, 0);
+  border: 1px solid rgb(155, 0, 0);
+  background-color: rgb(155, 0, 0);
 }
-
 
 .todo-list label {
-	position: relative;
-	display: flex;
-	color: #fff;
-	font-size: 20px;
-	cursor: pointer;
-	-webkit-user-select: none;
-	user-select: none;
-	align-items: center;
-	gap: 0.5rem;
+  position: relative;
+  display: flex;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.todo-list input[type="checkbox"] {
-	-webkit-appearance: none;
-	appearance: none;
-
+.todo-list input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .todo-list i {
-	position: relative;
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	border: 1px solid #333;
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #333;
 }
 
-.todo-list input[type="checkbox"]:checked ~ i {
-	border-top: none;
-	border-right: none;
-	height: 10px;
-	width: 16px;
-	transform: rotate(-45deg);
-	transform-origin: center;
-	border-color: #777;
+.todo-list input[type='checkbox']:checked ~ i {
+  border-top: none;
+  border-right: none;
+  height: 10px;
+  width: 16px;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  border-color: #777;
 }
 
 .todo-list span {
-	position: relative;
-	transition: 0.5s;
-	text-transform: capitalize;
-	color: #333;
+  position: relative;
+  transition: 0.5s;
+  text-transform: capitalize;
+  color: #333;
 }
 
 .todo-list span:before {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 100%;
-	height: 1px;
-	background: #777;
-	transform: scaleX(0);
-	transform-origin: right;
-	transition: transform 0.5s;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #777;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
 }
 
-.todo-list input[type="checkbox"]:checked ~ span:before {
-	transform: scaleX(1);
-	transform-origin: left;
-	transition: transform 0.5s;
+.todo-list input[type='checkbox']:checked ~ span:before {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.5s;
 }
 
-.todo-list input[type="checkbox"]:checked ~ span {
-	color: #888;
+.todo-list input[type='checkbox']:checked ~ span {
+  color: #888;
 }
-
-
-

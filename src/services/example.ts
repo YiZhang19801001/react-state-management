@@ -1,19 +1,19 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface Post {
-  id: string
-  name: string
+  id: string;
+  name: string;
 }
 
-type PostsResponse = Post[]
+type PostsResponse = Post[];
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '/' }),
   tagTypes: ['Post'],
-  endpoints: (build) => ({
+  endpoints: build => ({
     getPosts: build.query<PostsResponse, void>({
       query: () => 'posts',
-      providesTags: (result) =>
+      providesTags: result =>
         result
           ? [
               ...result.map(({ id }) => ({ type: 'Post' as const, id })),
@@ -22,7 +22,7 @@ export const api = createApi({
           : [{ type: 'Post', id: 'LIST' }],
     }),
     addPost: build.mutation<Post, Partial<Post>>({
-      query: (body) => ({
+      query: body => ({
         url: `posts`,
         method: 'POST',
         body,
@@ -30,7 +30,7 @@ export const api = createApi({
       invalidatesTags: [{ type: 'Post', id: 'LIST' }],
     }),
     getPost: build.query<Post, string>({
-      query: (id) => `posts/${id}`,
+      query: id => `posts/${id}`,
       providesTags: (result, error, id) => [{ type: 'Post', id }],
     }),
     updatePost: build.mutation<void, Pick<Post, 'id'> & Partial<Post>>({
@@ -41,14 +41,14 @@ export const api = createApi({
       }),
       async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
-          api.util.updateQueryData('getPost', id, (draft) => {
-            Object.assign(draft, patch)
+          api.util.updateQueryData('getPost', id, draft => {
+            Object.assign(draft, patch);
           })
-        )
+        );
         try {
-          await queryFulfilled
+          await queryFulfilled;
         } catch {
-          patchResult.undo()
+          patchResult.undo();
         }
       },
       invalidatesTags: (result, error, { id }) => [{ type: 'Post', id }],
@@ -58,12 +58,12 @@ export const api = createApi({
         return {
           url: `posts/${id}`,
           method: 'DELETE',
-        }
+        };
       },
       invalidatesTags: (result, error, id) => [{ type: 'Post', id }],
     }),
   }),
-})
+});
 
 export const {
   useGetPostQuery,
@@ -71,4 +71,4 @@ export const {
   useAddPostMutation,
   useUpdatePostMutation,
   useDeletePostMutation,
-} = api
+} = api;
