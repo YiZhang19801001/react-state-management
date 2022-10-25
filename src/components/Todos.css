@@ -1,5 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  min-width: 400px;
+  min-height: 600px;
+}
+
+.todo-container input[type='text'] {
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 14px;
+  padding-left: 1rem;
+  outline: none;
+  background-color: #dee1e2;
+  width: 100%;
+}
+
+.todo-container input:focus {
+  background-color: #fff;
+}
+
 .todo-list {
   position: relative;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
 }
 
 .todo-item {
@@ -9,20 +40,19 @@
   justify-content: flex-start;
   gap: 0.5rem;
   height: 2.5rem;
+  width: 100%;
 }
 
 .todo-item button {
   height: 1.5rem;
-  padding: 0 0.5rem;
-  border: 1px solid red;
-  background-color: red;
+  border: none;
+  background-color: transparent;
   color: #fff;
-  border-radius: 4px;
+  cursor: pointer;
 }
 
-.todo-item button:hover {
-  border: 1px solid rgb(155, 0, 0);
-  background-color: rgb(155, 0, 0);
+.todo-item button:hover span {
+  color: red;
 }
 
 .todo-list label {
@@ -35,6 +65,7 @@
   user-select: none;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
 }
 
 .todo-list input[type='checkbox'] {
@@ -88,4 +119,5 @@
 
 .todo-list input[type='checkbox']:checked ~ span {
   color: #888;
+  font-size: 14px;
 }

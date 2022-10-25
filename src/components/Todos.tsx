@@ -52,7 +52,7 @@ const TodoList = ({
               if (typeof deleteTask === 'function') deleteTask(id);
             }}
           >
-            delete
+            <span className="material-symbols-outlined">delete</span>
           </button>
         </div>
       ))}
@@ -89,7 +89,7 @@ function Todos({
 
   if (data)
     return (
-      <>
+      <div className="todo-container">
         <input
           placeholder="Add new tasks..."
           type="text"
@@ -98,7 +98,7 @@ function Todos({
           onKeyDown={handleOnKeyDown}
         />
         <TodoList data={data} toggleTask={toggleTask} deleteTask={deleteTask} />
-      </>
+      </div>
     );
 
   return null;
