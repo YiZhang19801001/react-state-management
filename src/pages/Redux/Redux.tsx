@@ -11,6 +11,7 @@ import {
 } from './reducer';
 import Todos from '../../components/Todos';
 import { Provider, useSelector, useDispatch } from 'react-redux';
+
 function Page() {
   const { todos, isLoading } = useSelector((state: stateType) => state);
   const dispatch: typeof store.dispatch = useDispatch();
@@ -20,6 +21,7 @@ function Page() {
   }, []);
 
   const error = undefined;
+
   const addTask = (title: string) => {
     dispatch(addTodo(title));
   };

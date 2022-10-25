@@ -84,7 +84,7 @@ function Todos({
   const toggleTask = (id: number) => {
     const matchedTodo = data?.find(ele => ele.id === id);
     if (matchedTodo && typeof updateTask === 'function')
-      updateTask({ id, completed: !matchedTodo.completed });
+      updateTask({ ...matchedTodo, completed: !matchedTodo.completed });
   };
 
   if (data)

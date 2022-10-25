@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
+// import counterReducer from './counterSlice';
 import { mockApi } from '../../services/mockAPI';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    // counter: counterReducer,
     [mockApi.reducerPath]: mockApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
