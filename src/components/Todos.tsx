@@ -77,6 +77,7 @@ function Todos({
   const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && typeof addTask === 'function') {
       addTask(newTaskTitle);
+      setNewTaskTitle('');
     }
   };
 

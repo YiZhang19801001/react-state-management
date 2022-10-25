@@ -20,8 +20,8 @@ function Page() {
   }, []);
 
   const error = undefined;
-  const addTask = (todo: Todo) => {
-    dispatch(addTodo(todo));
+  const addTask = (title: string) => {
+    dispatch(addTodo(title));
   };
 
   const updateTask = (todo: Todo) => {

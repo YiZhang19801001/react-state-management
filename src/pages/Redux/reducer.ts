@@ -72,7 +72,7 @@ export function loadTodos() {
   };
 }
 
-export function addTodo(todo: Todo) {
+export function addTodo(title: string) {
   return async (dispatch: DispatchType) => {
     try {
       dispatch({
@@ -80,7 +80,7 @@ export function addTodo(todo: Todo) {
       });
 
       await axios.post('https://634009f5e44b83bc73c76aac.mockapi.io/todos', {
-        ...todo,
+        title,
       });
 
       const response = await axios.get(
